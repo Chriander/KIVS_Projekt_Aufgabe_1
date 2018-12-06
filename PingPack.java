@@ -7,30 +7,40 @@ public class PingPack {
 	double rttmin;
 	double rttavg;
 	double rttmax;
-	double rttmdev;
+	String IP;
+	
+	
+	
+	boolean stampB = false;
+	boolean rttminB = false;
+	boolean rttavgB = false;
+	boolean rttmaxB = false;
+	boolean IPB = false;
 	
 	//empty constructor for first value
 	public PingPack() {
 		
 	}
 	//constructor for Pings without rtt dev
-	public PingPack(int stamp, double rttmin, double rttavg, double rttmax  ) {
+	public PingPack(int stamp, double rttmin, double rttavg, double rttmax, String IP  ) {
 		this.stamp = stamp;
 		this.rttmin = rttmin;
 		this.rttavg = rttavg;
 		this.rttmax = rttmax;
+		this.IP = IP;
+		
+		this.stampB = true;
+		this.rttminB = true;
+		this.rttavgB = true;
+		this.rttmaxB = true;
+		this.IPB = true;
+		
+		
 		
 	}
-	//constructor for Pings with rtt dev
-	public PingPack(int stamp, double rttmin, double rttavg, double rttmax, double rttmdev  ) {
-		this.stamp = stamp;
-		this.rttmin = rttmin;
-		this.rttavg = rttavg;
-		this.rttmax = rttmax;
-		this.rttmdev = rttmdev;
-	}
+	
 	//function to calculate values
-	public void PackCreator(int stamp, ArrayList<Double> WList) {
+	public void PackCreator(int stamp, ArrayList<Double> WList, String IP) {
 		//get minimum
 		double min = WList.get(0);
 		for(int i = 0; i<WList.size();i++) {
@@ -59,6 +69,13 @@ public class PingPack {
 		this.rttmin = min;
 		this.rttavg = avg;
 		this.rttmax = max;
+		this.IP = IP;
+		
+		this.stampB = true;
+		this.rttminB = true;
+		this.rttavgB = true;
+		this.rttmaxB = true;
+		this.IPB = true;
 		
 	}
 
