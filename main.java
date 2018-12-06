@@ -13,7 +13,7 @@ public class main {
 		// test2.URL_opener();
 
 		// implement mdev if there is time
-		// ask what the hell random numbers patch is (maybe only accept ping if)
+		
 		// 1. line rtt 2. line stamp 3. line IP
 		// Implement: open most recent path
 

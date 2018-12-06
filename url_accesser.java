@@ -25,15 +25,13 @@ public class url_accesser {
 
 	public void URL_opener() {
 
-		/*
 		try {
 			String home = System.getProperty("user.home");
-			Files.copy(new URL(this.url).openStream(), Paths.get(home + "/PA.log"));
+			Files.copy(new URL(this.url).openStream(), Paths.get(home + File.separator + "PA.log"));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		*/
 
 		/*
 		 * if (Desktop.isDesktopSupported()) {
