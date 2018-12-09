@@ -1,8 +1,9 @@
 package kivs_Package;
 
-import java.awt.BasicStroke;
+
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Shape;
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
@@ -23,6 +24,7 @@ import org.jfree.data.time.Millisecond;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYDataset;
+import org.jfree.util.ShapeUtilities;
 
 public class TimeRttPlot extends JFrame {
 
@@ -104,22 +106,28 @@ public class TimeRttPlot extends JFrame {
 		XYPlot plot = (XYPlot) chart.getPlot();
 
 		DateAxis dateAxis = (DateAxis) plot.getDomainAxis();
-
 		dateAxis.setDateFormatOverride(new SimpleDateFormat("MMM-yyyy"));
 
 		XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
+		Shape cross = ShapeUtilities.createDiagonalCross(3, 1);
 		renderer.setSeriesPaint(0, Color.BLUE);
-		renderer.setBaseShapesVisible(false);
-		renderer.setSeriesStroke(0, new BasicStroke(2.0f));
+		renderer.setSeriesShape(0, cross);
+		renderer.setSeriesLinesVisible(0, false);
+
 		renderer.setSeriesPaint(1, Color.RED);
-		renderer.setBaseShapesVisible(false);
-		renderer.setSeriesStroke(1, new BasicStroke(2.0f));
+
+		renderer.setSeriesLinesVisible(1, false);
 
 		renderer.setSeriesPaint(2, Color.GREEN);
-		renderer.setBaseShapesVisible(false);
-		renderer.setSeriesStroke(2, new BasicStroke(2.0f));
-		
+		renderer.setBaseShapesVisible(true);
+		renderer.setSeriesLinesVisible(2, false);
+		plot.setDomainGridlinesVisible(true);
+		plot.setDomainGridlinePaint(Color.BLACK);
+		plot.setRangeGridlinesVisible(true);
+		plot.setRangeGridlinePaint(Color.BLACK);
+
 		plot.setRenderer(renderer);
+
 		plot.setBackgroundPaint(Color.white);
 
 		chart.getLegend().setFrame(BlockBorder.NONE);
