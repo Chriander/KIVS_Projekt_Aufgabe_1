@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class url_accesser {
 
@@ -23,8 +24,8 @@ public class url_accesser {
 	public void URL_opener() {
 
 		try {
-			String home = System.getProperty("user.home");
-			Files.copy(new URL(this.url).openStream(), Paths.get(home + File.separator + "PA.log"));
+			
+			Files.copy(new URL(this.url).openStream(), Paths.get("/builds/kivs_ws1819/gruppe_28/"+ "PA.log"),StandardCopyOption.REPLACE_EXISTING);
 
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block

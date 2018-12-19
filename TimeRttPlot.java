@@ -34,7 +34,7 @@ public class TimeRttPlot extends JFrame {
 		this.Liste = Liste;
 	}
 
-	public void PlotInit() {
+	public JFreeChart PlotInit() {
 
 		XYDataset dataset = createDatasetTimeRttMin(this.Liste);
 
@@ -54,6 +54,7 @@ public class TimeRttPlot extends JFrame {
 		setTitle("");
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		return chart;
 	}
 
 	// Creator of RTT Min
